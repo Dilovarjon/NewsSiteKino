@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<form method='post' asp-controller = "Registration" asp-action = "Check">
+    <p>
+        <label>Login</label><br />
+        <input name='Login' />
+    </p>
+    <p>
+        <label>Password</label><br />
+        <input type='password' name='password' />
+    </p>
+    <p>
+        <label>Name</label><br />
+        <input name='name' />
+    </p>
+    <p>
+        <label>Age</label><br />
+        <input name='age' />
+    </p>
+    <p>
+        <label>phonenamber</label><br />
+        <input name='PhoneNumber' />
+    </p>
+    <input type='submit' value='Login' />
+</form>
