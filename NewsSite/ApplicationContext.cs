@@ -5,7 +5,7 @@ namespace NewsSite.Controllers
     {
         public DbSet<Person> Persons { get; set; } = null!;
         public DbSet<Role> Roles { get; set; } = null!;
-        public DbSet<Movies> Movies { get; set; } = null!;
+        public DbSet<Movie> Movies { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
         public DbSet<Genres> Genres { get; set; } = null!;
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)

@@ -2,6 +2,6 @@
 {
     public class CategoryEnum
     {
-        public static string CategoryName = null;
+        public static string CategoryName = null!;
     }
 }
