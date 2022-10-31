@@ -1,4 +1,4 @@
-﻿namespace NewsSite.Interfaces
+﻿namespace NewsSite.Services.LoginServices
 {
     public interface ILoginServices
     {

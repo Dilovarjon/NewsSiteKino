@@ -3,30 +3,30 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
+using NewsSite.Services.RegistrationServices;
+using NewsSite.Services.LoginServices;
+using NewsSite.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-        options.LoginPath = "/registration";
-        options.AccessDeniedPath = "/registration";
-    });
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("Admin", policy =>
-    {
-        policy.RequireClaim(ClaimTypes.Name, "");
-    });
-});
-builder.Services.AddDbContext<ApplicationContext>(options => options.UseMySql(
-                        "server=localhost;user=root;password=;database=test1db;",
-                                    new MySqlServerVersion(new Version(10, 6, 5))));
+var authenticationScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+
+builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 builder.Services.AddTransient<ILoginServices, LoginServices>();
 builder.Services.AddTransient<IRegistrationServices, RegistrationServices>();
+
+builder.Services.AddAuthentication(authenticationScheme).AddCookie(opt =>
+    {
+        opt.LoginPath = "/registration";
+        opt.AccessDeniedPath = "/registration";
+    });
+
+builder.Services.AddAuthorization(opt => opt.AddPolicy("Admin", pol => pol.RequireClaim(ClaimTypes.Name, "")));
+
+builder.Services.AddDbContext<ApplicationContext>(opt => opt.UseMySql(connection, new MySqlServerVersion(new Version(10, 6, 5))));
 
 var app = builder.Build();
 

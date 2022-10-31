@@ -1,4 +1,7 @@
-﻿namespace NewsSite.Services
+﻿using NewsSite.Controllers;
+using NewsSite.Models;
+
+namespace NewsSite.Services.RegistrationServices
 {
     public class RegistrationServices : IRegistrationServices
     {
@@ -7,17 +10,18 @@
         {
             this.db = db;
         }
-        public Person? RegistrationUsers(HttpContext context)
+        public User UserRegistration(HttpContext context)
         {
-            var person = new Person();
+            var person = new User();
+
             var form = context.Request.Form;
-            if (form != null)
+            
+            var hasPerson = db.Users.Any(x => x.Login == form["login"]);
+            if (form != null && !hasPerson)
             {
-                /*if (db.Persons.FirstOrDefault(x => x.Login == form["login"], null) == null)
-                {*/
                     person.Login = form["login"];
                     person.Password = form["password"];
-                    person.PhoneNumber = form["PhoneNumber"];
+                    person.PhoneNumber = form["phonenumber"];
                     person.Name = form["name"];
                     person.Age = form["age"];
                     person.Role = db.Roles.FirstOrDefault(x => x.Name == "User");
@@ -25,13 +29,10 @@
                     db.SaveChanges();
 
                     return person;
-                /*}
-                else
-                    return null;*/
             }
             else
             {
-                return null;
+                return person;
             }
         }
     }

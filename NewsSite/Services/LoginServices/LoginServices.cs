@@ -1,29 +1,33 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using NewsSite.Controllers;
 using System.Security.Claims;
-namespace NewsSite.Services
+namespace NewsSite.Services.LoginServices
 {
     public class LoginServices : ILoginServices
     {
-        private readonly ApplicationContext db;
-        public LoginServices(ApplicationContext db)
+        private readonly ApplicationContext _dbContext;
+        public LoginServices(ApplicationContext dbContext)
         {
-            this.db = db;
+            _dbContext = dbContext;
         }
 
         public async Task<string> PersonLogin(HttpContext context)
         {
             var form = context.Request.Form;
 
+            string login = form["login"];
+            string password = form["Password"];
+
+            var hasPerson = _dbContext.Users.Any(x => x.Login == login && x.Password == password);
+
             if (!form.ContainsKey("login") && !form.ContainsKey("password"))
             {
                 return "/Login";
             }
-            
 
-            string login = form["login"];
-            string password = form["Password"];
 
-            if (db.Persons.FirstOrDefault(x => x.Login == login) != null && db.Persons.FirstOrDefault(x=>x.Password == password) != null)
+
+            if (hasPerson)
             {
                 var claims = new List<Claim>
                 {
@@ -31,8 +35,10 @@ namespace NewsSite.Services
                 };
                 var claimIdentity = new ClaimsIdentity(claims, "Cookies");
                 var claimPrincipal = new ClaimsPrincipal(claimIdentity);
+
                 await context.SignInAsync(claimPrincipal);
-                return "";
+
+                return string.Empty;
             }
             else
             {

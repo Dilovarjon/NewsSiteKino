@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NewsSite.Services.RegistrationServices;
 
 namespace NewsSite.Controllers
 {
@@ -18,7 +19,7 @@ namespace NewsSite.Controllers
          [HttpPost]
          public IActionResult Check()
          {
-             var registrPerson = _registrationServices.RegistrationUsers(HttpContext);
+             var registrPerson = _registrationServices.UserRegistration(HttpContext);
              if (registrPerson != null)
                  return Redirect("/login");
              else

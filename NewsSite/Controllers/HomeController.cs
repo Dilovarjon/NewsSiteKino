@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NewsSite.Models;
 using System.Diagnostics;
 
 namespace NewsSite.Controllers

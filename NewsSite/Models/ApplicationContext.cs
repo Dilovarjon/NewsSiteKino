@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NewsSite.Enums;
+using NewsSite.Models;
+
 namespace NewsSite.Controllers
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<Person> Persons { get; set; } = null!;
+        public DbSet<User> Users { get; set; } = null!;
         public DbSet<Role> Roles { get; set; } = null!;
         public DbSet<Movie> Movies { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
