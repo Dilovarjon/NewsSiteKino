@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NewsSite.Migrations
 {
-    public partial class int_1 : Migration
+    public partial class init_1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -130,8 +130,8 @@ namespace NewsSite.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("19f0ed43-48f5-4b5e-a90d-1fd8715cabd0"), "User" },
-                    { new Guid("9ca7d89c-94fd-45fd-bd0c-8dfa60686279"), "Admin" }
+                    { new Guid("19f0ed43-48f5-4b5e-a90d-1fd8715cabd0"), "user" },
+                    { new Guid("9ca7d89c-94fd-45fd-bd0c-8dfa60686279"), "admin" }
                 });
 
             migrationBuilder.CreateIndex(

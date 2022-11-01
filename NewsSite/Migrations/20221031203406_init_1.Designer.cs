@@ -11,8 +11,8 @@ using NewsSite.Controllers;
 namespace NewsSite.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221031121102_int_1")]
-    partial class int_1
+    [Migration("20221031203406_init_1")]
+    partial class init_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -134,12 +134,12 @@ namespace NewsSite.Migrations
                         new
                         {
                             Id = new Guid("9ca7d89c-94fd-45fd-bd0c-8dfa60686279"),
-                            Name = "Admin"
+                            Name = "admin"
                         },
                         new
                         {
                             Id = new Guid("19f0ed43-48f5-4b5e-a90d-1fd8715cabd0"),
-                            Name = "User"
+                            Name = "user"
                         });
                 });
 

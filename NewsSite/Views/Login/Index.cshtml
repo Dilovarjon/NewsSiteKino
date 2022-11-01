@@ -2,7 +2,31 @@
     ViewData["Title"] = "Вход";
 }
 
-<form method='post' asp-controller = "Login" asp-action = "Check">
+<header class="header" id="header">
+    <div class="header__wrapper">
+        <div class="container">
+            <div class="header__body">
+                <div class="header__logo">
+                    <a href="/">NerzoPL</a>
+                </div>
+                <nav class="nav">
+                    <a href="/">Главная</a>
+                    <a href="/registration">регистрация</a>
+                    <a href="/login">Вход</a>
+                </nav>
+                <div class="header__exit">
+                    <a href="#">Выйти</a>
+                </div>
+                <div class="burger__menu">
+                    <div class="burger__line">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<form method='post' asp-controller="Login" asp-action="Check">
     <p>
         <label>Login</label><br />
         <input name='Login' />
@@ -13,3 +37,5 @@
     </p>
     <input type='submit' value='Login' />
 </form>
+<!-- JS-script -->
+<script src="assets/js/app.js"></script>

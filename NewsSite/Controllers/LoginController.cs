@@ -18,13 +18,9 @@ namespace NewsSite.Controllers
         [HttpPost]
         public async Task<IActionResult> Check()
         {
-            var res = await _loginServices.PersonLogin(HttpContext);
-            if (res == "/Login")
-            {
-                return View();
-            }
-            else
-                return Ok("qwe");
+            string res = await _loginServices.PersonLogin(HttpContext);
+            
+            return Redirect(res);
         }
     }
 }

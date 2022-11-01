@@ -1,27 +1,61 @@
 ﻿@{
     ViewData["Title"] = "Регистрация";
 }
-
-<form method='post' asp-controller = "Registration" asp-action = "Check">
-    <p>
-        <label>Login</label><br />
-        <input name='login' />
-    </p>
-    <p>
-        <label>Password</label><br />
-        <input type='password' name='password' />
-    </p>
-    <p>
-        <label>Name</label><br />
-        <input name='name' />
-    </p>
-    <p>
-        <label>Age</label><br />
-        <input name='age' />
-    </p>
-    <p>
-        <label>phonenamber</label><br />
-        <input name='phonenumber' />
-    </p>
-    <input type='submit' value='Login' />
-</form>
+<header class="header" id="header">
+    <div class="header__wrapper">
+        <div class="container">
+            <div class="header__body">
+                <div class="header__logo">
+                    <a href="/">NerzoPL</a>
+                </div>
+                <nav class="nav">
+                    <a href="/">Главная</a>
+                    <a href="/registration">регистрация</a>
+                    <a href="/login">Вход</a>
+                </nav>
+                <div class="header__exit">
+                    <a href="#">Выйти</a>
+                </div>
+                <div class="burger__menu">
+                    <div class="burger__line">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="blockform" id="blockform">
+    <div class="blockform__wrapper">
+        <div class="container">
+            <div class="blockform__body">
+                <h1>Регистрация</h1>
+                <form method='post' asp-controller="Registration" asp-action="Check">
+                    <p>
+                        <label>Login</label><br />
+                        <input name='login' placeholder="Введите логин" />
+                    </p>
+                    <p>
+                        <label>Password</label><br />
+                        <input type='password' name='password' placeholder="Введите пароль" />
+                    </p>
+                    <p>
+                        <label>Name</label><br />
+                        <input name='name' placeholder="Введите Имя" />
+                    </p>
+                    <p>
+                        <label>Age</label><br />
+                        <input name='age' placeholder="Введите Возраст" />
+                    </p>
+                    <p>
+                        <label>phonenamber</label><br />
+                        <input name='phonenumber' placeholder="Введите номер телефона" />
+                    </p>
+                    <input type='submit' value="Сохранить" required />
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- JS-script -->
+<script src="assets/js/app.js"></script>

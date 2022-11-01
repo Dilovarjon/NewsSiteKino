@@ -1,18 +1,14 @@
-html {
-  font-size: 14px;
-}
+/* Base Style */
+@import url('base.css');
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
+/* Header Style */
+@import url('header.css');
 
-html {
-  position: relative;
-  min-height: 100%;
-}
+/* Form Style */
+@import url('blockform.css');
 
-body {
-  margin-bottom: 60px;
-}
+/* Edit Style */
+@import url('blockeditor.css');
+
+/* Main Style */
+@import url('main.css');

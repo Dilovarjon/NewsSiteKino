@@ -23,7 +23,7 @@ namespace NewsSite.Controllers
              if (registrPerson != null)
                  return Redirect("/login");
              else
-                 return View("/");
+                 return Redirect("/registration");
          }
     }
 }

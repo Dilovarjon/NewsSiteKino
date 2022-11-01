@@ -1,0 +1,106 @@
+.blockeditor__body {
+  margin-bottom: 50px;
+}
+
+.blockeditor__body h1 {
+  padding: 50px 0;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #212121;
+}
+
+.blockeditor__cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.blockeditor__item {
+  padding: 12px 0;
+  border-bottom: 2px solid #212121;
+}
+
+.blockeditor__item, .blockeditor__info, .blockeditor__button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blockeditor__info img {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+}
+
+.blockeditor__id, .blockeditor__title {
+  border-left: 2px solid #212121;
+  padding: 4px 22px;
+  margin-left: 30px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #212121;
+}
+
+.blockeditor__title {
+  margin-left: 8px;
+}
+
+.blockeditor__button {
+  gap: 20px;
+}
+
+.blockeditor__button a {
+  width: fit-content;
+  color: #fff;
+  background: #ee955b;
+  padding: 12px 16px;
+  border-radius: 4px;
+  transition: .2s;
+}
+
+.blockeditor__button a:last-child {
+  background: #fe6d6d;
+}
+
+.blockeditor__button a:hover {
+  opacity: .8;
+}
+
+@media screen and (max-width: 1024px) {
+  .blockeditor__cards {
+    display: flex;
+    flex-direction: inherit;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+  .blockeditor__item, .blockeditor__info, .blockeditor__button {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .blockeditor__info img {
+    width: 158px;
+    height: 158px;
+  }
+  .blockeditor__id, .blockeditor__title {
+    margin-top: 12px;
+    padding: 0;
+    margin-left: 0;
+    border-left: none;
+  }
+  .blockeditor__button {
+    gap: 0;
+  }
+  .blockeditor__button a {
+    margin-top: 12px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .blockeditor__body h1 {
+    font-size: 24px;
+  }
+}

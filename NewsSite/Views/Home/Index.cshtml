@@ -1,10 +1,33 @@
 ﻿@{
     ViewData["Title"] = "Главная страница сайта";
 }
-
+<header class="header" id="header">
+    <div class="header__wrapper">
+        <div class="container">
+            <div class="header__body">
+                <div class="header__logo">
+                    <a href="/">NerzoPL</a>
+                </div>
+                <nav class="nav">
+                    <a href="/">Главная</a>
+                    <a href="/registration">регистрация</a>
+                    <a href="/login">Вход</a>
+                </nav>
+                <div class="header__exit">
+                    <a href="#">Выйти</a>
+                </div>
+                <div class="burger__menu">
+                    <div class="burger__line">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 <h1>Главная страница сайта</h1>
 @*<br />
-@Video.Silverlight(
+    @Video.Silverlight(
     path:"Movies/sample.xap",
     width: "400",
     height:"600",
@@ -15,3 +38,5 @@
     quality:"medium",
     scale: "exactfit",
     windowMode:"transparent")*@
+<!-- JS-script -->
+<script src="assets/js/app.js"></script>

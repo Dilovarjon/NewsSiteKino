@@ -1,4 +1,11 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿/**
+** Burger menu
+**/
 
-// Write your JavaScript code.
+let burgerMenu = document.querySelector('.burger__menu');
+let navMenu = document.querySelector('nav');
+
+burgerMenu.addEventListener('click', (event) => {
+    event.currentTarget.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});

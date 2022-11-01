@@ -132,12 +132,12 @@ namespace NewsSite.Migrations
                         new
                         {
                             Id = new Guid("9ca7d89c-94fd-45fd-bd0c-8dfa60686279"),
-                            Name = "Admin"
+                            Name = "admin"
                         },
                         new
                         {
                             Id = new Guid("19f0ed43-48f5-4b5e-a90d-1fd8715cabd0"),
-                            Name = "User"
+                            Name = "user"
                         });
                 });
 
