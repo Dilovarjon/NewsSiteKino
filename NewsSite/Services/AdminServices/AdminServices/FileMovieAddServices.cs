@@ -1,7 +1,8 @@
 ﻿using NewsSite.Controllers;
 using NewsSite.Models;
+using NewsSite.Services.AdminServices.IAdminServices;
 
-namespace NewsSite.Services.AdminServices
+namespace NewsSite.Services.AdminServices.AdminServices
 {
     public class FileMovieAddServices : IFileMovieAddServices
     {
@@ -18,8 +19,11 @@ namespace NewsSite.Services.AdminServices
             var form = context.Request.Form;
 
             string name = form["name"];
+           // жанры
             string gen = form["genres"];
+            // категории
             string cat = form["category"];
+            
             string opistanie = form["opisatie"];
 
             var genres = _dbContext.Genres.FirstOrDefault(x => x.Name == gen);

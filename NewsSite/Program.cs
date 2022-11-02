@@ -1,12 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication;
 using NewsSite.Services.RegistrationServices;
 using NewsSite.Services.LoginServices;
 using NewsSite.Controllers;
-using NewsSite.Services.AdminServices;
+using NewsSite.Services.AdminServices.IAdminServices;
+using NewsSite.Services.AdminServices.AdminServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +17,8 @@ builder.Services.AddControllers();
 builder.Services.AddTransient<ILoginServices, LoginServices>();
 builder.Services.AddTransient<IRegistrationServices, RegistrationServices>();
 builder.Services.AddTransient<IFileMovieAddServices, FileMovieAddServices>();
+builder.Services.AddTransient<IFileMovieÑhangesServices, FileMovieÑhangesServices>();
+builder.Services.AddTransient<IFileMovieDeleteServices, FileMovieDeleteServices>();
 
 builder.Services.AddAuthentication(authenticationScheme).AddCookie(opt =>
     {

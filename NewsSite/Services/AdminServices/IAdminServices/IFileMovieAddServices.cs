@@ -1,4 +1,4 @@
-﻿namespace NewsSite.Services.AdminServices
+﻿namespace NewsSite.Services.AdminServices.IAdminServices
 {
     public interface IFileMovieAddServices
     {

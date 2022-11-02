@@ -4,6 +4,6 @@ namespace NewsSite.Services.RegistrationServices
 {
     public interface IRegistrationServices
     {
-        public User UserRegistration(HttpContext context);
+        public Task<User> UserRegistration(HttpContext context);
     }
 }

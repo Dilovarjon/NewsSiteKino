@@ -10,7 +10,7 @@ namespace NewsSite.Services.RegistrationServices
         {
             this.db = db;
         }
-        public User UserRegistration(HttpContext context)
+        public async Task<User> UserRegistration(HttpContext context)
         {
             var user = new User();
 
@@ -33,7 +33,7 @@ namespace NewsSite.Services.RegistrationServices
                 user.Age = age;
                 user.Role = db.Roles.FirstOrDefault(x => x.Name == "user");
                 db.Add(user);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return user;
             }

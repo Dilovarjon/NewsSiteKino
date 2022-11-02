@@ -17,9 +17,9 @@ namespace NewsSite.Controllers
             return View();
         }
          [HttpPost]
-         public IActionResult Check()
+         public async Task<IActionResult> Check()
          {
-             var registrPerson = _registrationServices.UserRegistration(HttpContext);
+             var registrPerson = await _registrationServices.UserRegistration(HttpContext);
              if (registrPerson != null)
                  return Redirect("/login");
              else
