@@ -1,8 +1,8 @@
 ﻿using NewsSite.Controllers;
 using NewsSite.Models;
-using NewsSite.Services.AdminServices.IAdminServices;
+using NewsSite.Services.AdminServices.IAdminServices.IFileMovieServices;
 
-namespace NewsSite.Services.AdminServices.AdminServices
+namespace NewsSite.Services.AdminServices.AdminServices.FileMovieServices
 {
     public class FileMovieAddServices : IFileMovieAddServices
     {
@@ -30,7 +30,7 @@ namespace NewsSite.Services.AdminServices.AdminServices
             var category = _dbContext.Categories.FirstOrDefault(x => x.Name == cat);
 
             // Берём формат файла и соединяем с новым именем файла
-            name = name + uploadedFile.FileName.Substring(uploadedFile.FileName.LastIndexOf('.'));
+            name += uploadedFile.FileName.Substring(uploadedFile.FileName.LastIndexOf('.'));
             if (uploadedFile != null && uploadedFile.Length <= 2200000000)
             {
                 // путь к папке Files
