@@ -16,6 +16,11 @@ var authenticationScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<ApplicationContext>(opt => opt.UseMySql(connection, new MySqlServerVersion(new Version(10, 6, 5))));
+/// <summary>
+/// добовляем сервис Логин
+/// </summary>
 builder.Services.AddTransient<ILoginServices, LoginServices>();
 /// <summary>
 /// Добовляем сервис Регистрасии
