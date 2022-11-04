@@ -14,6 +14,8 @@ var authenticationScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<ApplicationContext>(opt => opt.UseMySql(connection, new MySqlServerVersion(new Version(10, 6, 5))));
 builder.Services.AddTransient<ILoginServices, LoginServices>();
 builder.Services.AddTransient<IRegistrationServices, RegistrationServices>();
 builder.Services.AddTransient<IFileMovieAddServices, FileMovieAddServices>();
@@ -28,7 +30,6 @@ builder.Services.AddAuthentication(authenticationScheme).AddCookie(opt =>
 builder.Services.AddAuthorization();
 //builder.Services.AddAuthorization(opt => opt.AddPolicy("Admin", pol => pol.RequireClaim(ClaimTypes.Name, "")));
 
-builder.Services.AddDbContext<ApplicationContext>(opt => opt.UseMySql(connection, new MySqlServerVersion(new Version(10, 6, 5))));
 
 var app = builder.Build();
 
