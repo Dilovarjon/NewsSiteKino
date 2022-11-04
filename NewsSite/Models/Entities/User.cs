@@ -8,6 +8,7 @@
         public string PhoneNumber { get; set; } = string.Empty;
         public string Login { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public Role? Role { get; set; }
+        public Guid RoleId { get; set; }
+        public Role Role { get; set; }
     }
 }

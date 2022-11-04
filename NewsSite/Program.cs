@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using NewsSite.Services.RegistrationServices;
 using NewsSite.Services.LoginServices;
 using NewsSite.Controllers;
-using NewsSite.Services.AdminServices.IAdminServices;
-using NewsSite.Services.AdminServices.AdminServices;
+using NewsSite.Services.AdminServices.IAdminServices.IFileMovieServices;
+using NewsSite.Services.AdminServices.AdminServices.FileMovieServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,8 +16,17 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<ApplicationContext>(opt => opt.UseMySql(connection, new MySqlServerVersion(new Version(10, 6, 5))));
+/// <summary>
+/// добовляем сервис Логин
+/// </summary>
 builder.Services.AddTransient<ILoginServices, LoginServices>();
+/// <summary>
+/// Добовляем сервис Регистрасии
+/// </summary>
 builder.Services.AddTransient<IRegistrationServices, RegistrationServices>();
+/// <summary>
+/// Добовляем Файловые сервисы
+/// </summary>
 builder.Services.AddTransient<IFileMovieAddServices, FileMovieAddServices>();
 builder.Services.AddTransient<IFileMovieСhangesServices, FileMovieСhangesServices>();
 builder.Services.AddTransient<IFileMovieDeleteServices, FileMovieDeleteServices>();

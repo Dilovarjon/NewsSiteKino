@@ -1,8 +1,8 @@
 ﻿using NewsSite.Controllers;
 using NewsSite.Models;
-using NewsSite.Services.AdminServices.IAdminServices;
+using NewsSite.Services.AdminServices.IAdminServices.IFileMovieServices;
 
-namespace NewsSite.Services.AdminServices.AdminServices
+namespace NewsSite.Services.AdminServices.AdminServices.FileMovieServices
 {
     public class FileMovieСhangesServices : IFileMovieСhangesServices
     {
