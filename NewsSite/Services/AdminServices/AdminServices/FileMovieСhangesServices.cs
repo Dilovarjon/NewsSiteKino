@@ -28,7 +28,7 @@ namespace NewsSite.Services.AdminServices.AdminServices
                 movie.Category = movieData.Category;
                 movie.Genres = movieData.Genres;
                 movie.Opisanie = movieData.Opisanie;
-                await _dbContext.Movies.AddAsync(movie);
+                _dbContext.Movies.Update(movie);
                 await _dbContext.SaveChangesAsync();
                 return;
             }
