@@ -30,6 +30,17 @@ namespace NewsSite.Controllers
                     Id = RoleEnum.IdUser,
                     Name = RoleEnum.UserName
                 });
+            model.Entity<User>().HasData(
+                new User
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "admin",
+                    Age = "12",
+                    Login = "admin",
+                    Password = "12345",
+                    PhoneNumber = "",
+                    RoleId = RoleEnum.IdAdmin,
+                });
 
             
             

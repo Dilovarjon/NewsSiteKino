@@ -5,6 +5,8 @@ using NewsSite.Services.LoginServices;
 using NewsSite.Controllers;
 using NewsSite.Services.AdminServices.IAdminServices.IFileMovieServices;
 using NewsSite.Services.AdminServices.AdminServices.FileMovieServices;
+using NewsSite.Services.AdminServices.IAdminServices.IUserServices;
+using NewsSite.Services.AdminServices.AdminServices.UserServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +32,10 @@ builder.Services.AddTransient<IRegistrationServices, RegistrationServices>();
 builder.Services.AddTransient<IFileMovieAddServices, FileMovieAddServices>();
 builder.Services.AddTransient<IFileMovieÑhangesServices, FileMovieÑhangesServices>();
 builder.Services.AddTransient<IFileMovieDeleteServices, FileMovieDeleteServices>();
-
+/// <summary>
+/// Äîáîâëÿåì àäìèí ñåğâèñû
+/// </summary>
+builder.Services.AddTransient<IUserUpdateService, UserUpdateService>();
 builder.Services.AddAuthentication(authenticationScheme).AddCookie(opt =>
     {
         opt.LoginPath = "/Login";
