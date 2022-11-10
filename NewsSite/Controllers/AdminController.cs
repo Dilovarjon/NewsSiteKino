@@ -43,8 +43,8 @@ namespace NewsSite.Controllers
         [HttpGet]
         public IActionResult GetListUsers()
         {
-            var users = _dbContext.Users.Select(x => x);
-            return Ok();
+            var users = _dbContext.Users.Select(x => x).ToList();
+            return Json(users);
         }
         /// <summary>
         /// Получаем пользователя по id и отправляем его

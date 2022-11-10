@@ -7,14 +7,22 @@ namespace NewsSite.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationContext _dbContext;
+        public HomeController(ILogger<HomeController> logger, ApplicationContext dbContext)
         {
             _logger = logger;
+            _dbContext = dbContext;
         }
 
         public IActionResult Index()
         {
+            
+            return View(_dbContext.Users.Select(x => x).ToList());
+        }
+        [HttpGet]
+        public IActionResult GetMovie()
+        {
+         
             return View();
         }
 
