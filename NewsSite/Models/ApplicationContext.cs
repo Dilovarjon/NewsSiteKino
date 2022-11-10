@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NewsSite.Enums;
 using NewsSite.Models;
 using NewsSite.Models.Entities.EntityMapper;
 
