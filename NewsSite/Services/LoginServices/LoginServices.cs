@@ -32,8 +32,8 @@ namespace NewsSite.Services.LoginServices
                 var role = await _dbContext.Users.Where(x => x.Login == login && x.Password == password).Include(x=>x.Role).FirstOrDefaultAsync(x => x.Password == password);
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimsIdentity.DefaultNameClaimType,user.Login),
-                    new Claim(ClaimsIdentity.DefaultRoleClaimType,role?.Role?.Name)
+                    new Claim(ClaimsIdentity.DefaultNameClaimType,user!.Login),
+                    new Claim(ClaimsIdentity.DefaultRoleClaimType,role!.Role!.Name)
                 };
                 var claimIdentity = new ClaimsIdentity(claims, "Cookies");
                 var claimPrincipal = new ClaimsPrincipal(claimIdentity);

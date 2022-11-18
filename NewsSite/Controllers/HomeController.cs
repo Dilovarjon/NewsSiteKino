@@ -16,13 +16,19 @@ namespace NewsSite.Controllers
 
         public IActionResult Index()
         {
-            
-            return View(_dbContext.Users.Select(x => x).ToList());
+            return View();
+            Console.Write(_logger);
+        }
+        [HttpGet]
+        public IActionResult ListGetMovie()
+        {
+            _dbContext.Users.Select(x => x).ToList();
+            return View();
         }
         [HttpGet]
         public IActionResult GetMovie()
         {
-         
+
             return View();
         }
 

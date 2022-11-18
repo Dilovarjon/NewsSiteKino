@@ -15,7 +15,7 @@ namespace NewsSite.Controllers
         
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
-            //Database.EnsureCreated();   // создаем базу данных при первом обращении
+            Database.EnsureCreated();   // создаем базу данных при первом обращении
         }
         /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,7 +33,7 @@ namespace NewsSite.Controllers
             modelBuilder.ApplyConfiguration(new GenresMap());    
 
             // Добовление в базу данных Жанры
-            modelBuilder.ApplyConfiguration(new CategoryMap());
+       //     modelBuilder.ApplyConfiguration(new CategoryMap());
         }
     }
 }
